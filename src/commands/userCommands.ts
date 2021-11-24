@@ -23,3 +23,9 @@ export const getStats = async (discordId:string) => {
     if(response.status === 200) return generateStatsEmbed(response.data)
     return "ERRO"
 }
+
+export const unsetInfo = async (discordId:string) => {
+    const response = await UserAPI.post(`/delete`, {discordId})
+    if(response.status === 200) return `APAGADO`
+    return "ERRO"
+}

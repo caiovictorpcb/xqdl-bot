@@ -1,7 +1,7 @@
 import { Client, ClientUser, Message, Role, User } from "discord.js";
 import dotenv from "dotenv";
 import axios from "axios";
-import { setInfo, getStats } from './commands/userCommands';
+import { setInfo, getStats, unsetInfo } from './commands/userCommands';
 import { generateStatsEmbed } from "./utils/generateEmbedStats";
 
 dotenv.config();
@@ -32,6 +32,10 @@ bot.on("message", async (message:Message) => {
       }
       else if(comando === "stats"){
         const data = await getStats(discordId)
+        message.reply(data)
+      }
+      else if(comando === "unset"){
+        const data = await unsetInfo(discordId)
         message.reply(data)
       }
     }
