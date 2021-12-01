@@ -25,7 +25,6 @@ export const generateStatsEmbed = (player:ApiResponse) => {
             inline:true
             },
         )
-        .setImage(player.avatar_url_256)
         .setTimestamp()
         .setFooter('Stats tirados diretamente do XQDL BOT', 'https://i.imgur.com/1YXeT6M.png');
         return Embed
